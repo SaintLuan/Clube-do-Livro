@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - Clube do Livro</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/cadastro.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Clube do Livro</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="cadastro.html">Cadastro</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+
+
+                <li><a href="livroslidos.html">Livros Lidos</a></li>
+
+                <li><a href="encontros.html" class="active">Encontros</a></li>
+
+
+                <li><a href="meta2026.html">Meta 2026</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="container page-wrapper">
+        <div class="form-container">
+
+            <div class="page-header">
+                <div class="icon-circle">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z">
+                        </path>
+                    </svg>
+                </div>
+                <h1>Faça seu Cadastro</h1>
+                <p>Preencha o formulário abaixo para se tornar membro do Clube do Livro</p>
+            </div>
+
+
+            <div class="card" id="formCard">
+                <div class="card-header">
+                    <h2 class="card-title">Informações Pessoais</h2>
+                    <p class="card-description">Todos os campos marcados com * são obrigatórios</p>
+                </div>
+                <div class="card-content">
+                    <form id="cadastroForm">
+                        <div class="form-group">
+                            <label class="form-label" for="nome">Nome Completo *</label>
+                            <input type="text" class="form-input" id="nome" name="nome"
+                                placeholder="Digite seu nome completo" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="email">E-mail *</label>
+                            <input type="email" class="form-input" id="email" name="email"
+                                placeholder="seu.email@exemplo.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="turma">Turma *</label>
+                            <input type="text" class="form-input" id="turma" name="turma"
+                                placeholder="Ex: 2º Informática A" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="genero">Gênero Literário Favorito *</label>
+                            <select class="form-select" id="genero" name="genero" required>
+                                <option value="">Selecione um gênero</option>
+                                <option value="ficcao">Ficção</option>
+                                <option value="romance">Romance</option>
+                                <option value="fantasia">Fantasia</option>
+                                <option value="misterio">Mistério</option>
+                                <option value="biografia">Biografia</option>
+                                <option value="poesia">Poesia</option>
+                                <option value="ciencia">Ciência</option>
+                                <option value="historia">História</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="motivacao">Por que deseja participar do clube?</label>
+                            <textarea class="form-textarea" id="motivacao" name="motivacao" rows="4"
+                                placeholder="Conte-nos um pouco sobre sua motivação..."></textarea>
+                        </div>
+                        <div class="submit-section">
+                            <button type="submit" class="btn">Finalizar Cadastro</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+            <div class="card hidden" id="successCard">
+                <div class="success-card">
+                    <svg class="success-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <h2>Cadastro Realizado!</h2>
+                    <p>Obrigado por se juntar ao Clube do Livro, <strong id="userName"></strong>!</p>
+                    <p>Em breve você receberá mais informações sobre nossos próximos encontros e atividades.</p>
+                    <button class="btn" onclick="resetForm()">Fazer Outro Cadastro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="container">
+        <p>&copy; 2026 Clube do Livro</p>
+    </footer>
+
+    <script>
+        const form = document.getElementById('cadastroForm');
+        const formCard = document.getElementById('formCard');
+        const successCard = document.getElementById('successCard');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const formData = new FormData(form);
+            const nome = formData.get('nome');
+            const email = formData.get('email');
+            const turma = formData.get('turma');
+            const genero = formData.get('genero');
+
+            if (!nome || !email || !turma || !genero) {
+                alert('Por favor, preencha todos os campos obrigatórios');
+                return;
+            }
+
+            document.getElementById('userName').textContent = nome;
+            formCard.classList.add('hidden');
+            successCard.classList.remove('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        function resetForm() {
+            form.reset();
+            formCard.classList.remove('hidden');
+            successCard.classList.add('hidden');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+.page-title {
+    text-align: center;
+    font-size: 3rem;
+    color: #2C5F8D;
+}
+
+.subtitle {
+    text-align: center;
+    color: #8B6F47;
+    margin-bottom: 2rem;
+}
+
+.about-section {
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* Fundadores */
+.fundadores-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.fundador-card {
+    background: #4A6FA5;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    color: white;
+}
+
+/* Footer */
+footer {
+    background: #2C5F8D;
+    color: #F5E6D3;
+    text-align: center;
+    padding: 1rem;
+}

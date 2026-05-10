@@ -1,0 +1,58 @@
+/* Livros - Estatísticas */
+.stats-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.stat-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.stat-box .number {
+    font-size: 2.5rem;
+    color: #2C5F8D;
+}
+
+/* Grid de livros */
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.book-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.book-cover {
+    height: 150px;
+    background: #4A6FA5;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book-author {
+    color: #8B6F47;
+    font-style: italic;
+}
+
+.book-genre {
+    background: #F5E6D3;
+    padding: 0.3rem 0.7rem;
+    border-radius: 10px;
+    display: inline-block;
+    margin: 0.5rem 0;
+}
+
+.book-rating {
+    margin-top: 1rem;
+    color: #8B6F47;
+}
